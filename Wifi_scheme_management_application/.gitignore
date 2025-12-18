@@ -1,0 +1,15 @@
+angularapp/node_modules
+angularapp/package-lock.json
+angularapp/tslint.json
+angularapp/tsconfig.spec.json
+angularapp/src/test.ts
+angularapp/src/app/app.constants.ts
+angularapp/src/environments/environment.ts
+angularapp/src/polyfills.ts
+angularapp/src/app/models/user.model.spec.ts
+
+
+springapp/target
+springapp/.mvn
+springapp/src/main/resources/application.properties
+

@@ -1,0 +1,70 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { User } from '../models/user.model';
+import { Login } from '../models/login.model';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { APP_URL } from '../app.constants';
+
+export const AUTHENTICATED_USER = 'authenticatedUser';
+export const TOKEN = 'token';
+export const PAGE_ID = 'pageId';
+export const USER_ID = 'userId';
+export const ROLE = 'role';
+
+@Injectable({ providedIn: 'root' })
+export class AuthService {
+
+  public userRole = new BehaviorSubject<string>('');
+  public userId = new BehaviorSubject<number>(0);
+
+  constructor(private readonly http: HttpClient) {}
+
+  register(user: User): Observable<any> {
+    return this.http.post(`${APP_URL}/register`, user);
+  }
+
+  login(login: Login): Observable<User> {
+    return this.http.post<User>(`${APP_URL}/login`, login);
+   
+  }
+
+  setLoginDetails(role: string, id: number) {
+    this.userRole.next(role);
+    this.userId.next(id);
+  }
+
+  getToken(): string {
+    const loginDTO = localStorage.getItem('loginDTO');
+    console.log(JSON.parse(loginDTO).token);
+    return loginDTO ? JSON.parse(loginDTO).token : '';
+  }
+
+  getUserRole(): string {
+    const loginDTO = localStorage.getItem('loginDTO');
+    const parsed = loginDTO ? JSON.parse(loginDTO) : null;
+    return parsed && parsed.userRole ? parsed.userRole.toLowerCase() : '';
+  }
+  
+  
+  getUserName(): string {
+    const loginDTO = localStorage.getItem('loginDTO');
+    const parsed = loginDTO ? JSON.parse(loginDTO) : null;
+    return parsed && parsed.username ? parsed.username : '';
+  }
+  
+  
+  
+  isLoggedIn(): boolean {
+    const loginDTO = localStorage.getItem('loginDTO');
+    return !!(loginDTO && JSON.parse(loginDTO).token);
+  }
+  
+  logout(): void {
+    console.log("logged out!")
+    localStorage.removeItem('loginDTO');
+    this.userRole.next('');
+    this.userId.next(0);
+  }  
+
+ 
+}

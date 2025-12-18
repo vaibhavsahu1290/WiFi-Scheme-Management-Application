@@ -1,0 +1,138 @@
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2a84df;
+    padding: 10px 20px;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  .role {
+    font-size: 1em;
+    margin-left: auto;
+    margin-right: 20px;
+    color: #ecf0f1;
+  }
+  
+  .links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .links a {
+    color: #ecf0f1;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .links a:hover {
+    background-color: #34495e;
+  }
+  
+  .logout-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .logout-btn:hover {
+    background-color: #c0392b;
+  } */
+
+  /* Admin Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0078d7;
+  color: white;
+  padding: 20px 40px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  flex-wrap: wrap;
+}
+
+/* Logo */
+.navbar .logo {
+  font-size: 2.2em;
+  font-weight: bold;
+}
+
+/* Role Display */
+.navbar .role {
+  font-size: 1.2em;
+  font-weight: 500;
+  margin-left: auto;
+  margin-right: 40px;
+}
+
+/* Navigation Links */
+.navbar .links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.navbar .links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1em;
+  padding: 10px 16px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar .links a:hover {
+  background-color: #005fa3;
+}
+
+/* Logout Button */
+.logout-btn {
+  padding: 10px 16px;
+  background-color: #d8000c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #a00000;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .admin-navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar .links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 15px;
+  }
+
+  .navbar .role {
+    margin: 10px 0;
+  }
+}

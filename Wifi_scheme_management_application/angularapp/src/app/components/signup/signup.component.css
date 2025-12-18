@@ -1,0 +1,140 @@
+/* Container */
+.signup-container {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Left Panel */
+  .left-panel {
+    flex: 1;
+    background-color: #0078d7;
+    color: white;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .left-panel h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .left-panel p {
+    font-size: 1.2em;
+  }
+  
+  /* Right Panel */
+  .right-panel {
+    flex: 1;
+    background-color: #f4f4f4;
+    padding: 60px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .form-wrapper {
+    width: 100%;
+    max-width: 400px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .signup-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Unified Input and Select Styling */
+  .form-input,
+  .form-select {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    box-sizing: border-box;
+  }
+  
+  .signup-form input,
+  .signup-form select {
+    display: block;
+  }
+  
+  /* Error and Success Messages */
+  .error-msg {
+    color: #d8000c;
+    background-color: #ffdddd;
+    padding: 8px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+  }
+  
+  .success-msg {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    padding: 8px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+  }
+  
+  /* Submit Button */
+  .submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #0078d7;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-btn:disabled {
+    background-color: #a0a0a0;
+    cursor: not-allowed;
+  }
+  
+  .submit-btn:hover:not(:disabled) {
+    background-color: #005fa3;
+  }
+  
+  /* Login Redirect */
+  .login-redirect {
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .login-link {
+    color: #0078d7;
+    text-decoration: none;
+  }
+  
+  .login-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .signup-container {
+      flex-direction: column;
+    }
+  
+    .left-panel,
+    .right-panel {
+      flex: none;
+      width: 100%;
+      padding: 40px 20px;
+    }
+  }
+  

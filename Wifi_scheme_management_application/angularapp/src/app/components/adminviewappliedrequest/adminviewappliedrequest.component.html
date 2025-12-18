@@ -1,0 +1,114 @@
+<app-adminnav></app-adminnav>
+<br />
+<div class="container mt-4">
+  <h3>WiFi Scheme Requests for Approval</h3>
+
+  <div class="d-flex justify-content-between align-items-center my-3">
+    <input
+      type="text"
+      class="form-control w-50"
+      placeholder="Search by Scheme Name..."
+      [(ngModel)]="searchText"
+      (input)="applyFilters()"
+    />
+    <select
+      class="form-select w-25 ms-3"
+      [(ngModel)]="filterStatus"
+      (change)="applyFilters()"
+      id="filterStatus"
+    >
+      <option value="All">Filter by Status: All</option>
+      <option value="Approved">Approved</option>
+      <option value="Pending">Pending</option>
+      <option value="Rejected">Rejected</option>
+    </select>
+  </div>
+
+  <table class="table table-bordered text-center" *ngIf="filteredRequests.length > 0">
+    <thead class="table-dark">
+      <tr>
+        <th>S.No</th>
+        <th>User Name</th>
+        <th>Scheme Name</th>
+        <th>City</th>
+        <th>Request Date</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let request of filteredRequests; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ request.user?.username }}</td>
+        <td>{{ request.wifiScheme?.schemeName }}</td>
+        <td>{{ request.city }}</td>
+        <td>{{ request.requestDate | date: 'yyyy-MM-dd' }}</td>
+        <td>{{ request.status }}</td>
+        <td>
+          <button class="btn btn-info btn-sm" (click)="showMore(request)">Show More</button>
+          <button
+          *ngIf="request.status=='Rejected' || request.status=='Pending'"
+          [innerText]="request.status==='Approved'? 'Approved':'Approve'"
+          class="btn btn-success btn-sm me-1"
+          [disabled]="request.status === 'Approved'"
+          [ngStyle]="request.status === 'Approved' ? {
+            'background-color': '#ccc',
+            'color': '#666',
+            'border-color': '#999',
+            'cursor': 'not-allowed'
+          } : {}"
+          (click)="approveRequest(request)"
+        >
+          
+        </button>
+        
+        <button *ngIf="request.status=='Approved'  || request.status=='Pending'"
+          class="btn btn-danger btn-sm"
+          [innerText]="request.status==='Rejected'? 'Rejected':'Reject'"          
+          [ngStyle]="request.status === 'Rejected' ? {
+          'background-color': '#ccc',
+          'color': '#666',
+          'border-color': '#999',
+          'cursor': 'not-allowed'
+          } : {}"
+          [disabled]="request.status === 'Rejected'"
+          (click)="rejectRequest(request)"
+        >
+          
+        </button>
+        
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="filteredRequests.length === 0" class="text-center mt-4 text-danger">
+    Oops! No records found.
+  </div>
+</div>
+
+
+
+
+<div class="modal-backdrop" *ngIf="selectedRequest">
+  <div class="modal-content">
+    <button class="close" (click)="closeModal()" aria-label="Close modal">&times;</button>
+    <h3 class="modal-title">Request Details</h3>
+    <p><strong>User Name:</strong> {{ selectedRequest.user?.username }}</p>
+    <p><strong>Scheme Name:</strong> {{ selectedRequest.wifiScheme?.schemeName }}</p>
+    <p><strong>City:</strong> {{ selectedRequest.city }}</p>
+    <p><strong>Request Date:</strong> {{ selectedRequest.requestDate | date: 'yyyy-MM-dd' }}</p>
+    <p><strong>Status:</strong> {{ selectedRequest.status }}</p>
+    <p><strong>Street Name:</strong> {{ selectedRequest.streetName }}</p>
+    <p><strong>Landmark:</strong> {{ selectedRequest.landmark }}</p>
+    <p><strong>Preferred Setup Date:</strong> {{ selectedRequest.preferredSetupDate | date: 'yyyy-MM-dd' }}</p>
+    <p><strong>Time Slot:</strong> {{ selectedRequest.timeSlot }}</p>
+    <p><strong>Proof:</strong></p>
+    <img *ngIf="selectedRequest.proof" [src]="'data:image/jpeg;base64,' + selectedRequest.proof" alt="Proof" class="proof-image" height="200" width="200" />
+    <p *ngIf="!selectedRequest.proof">No proof available</p>
+  </div>
+</div>
+
+
+
+

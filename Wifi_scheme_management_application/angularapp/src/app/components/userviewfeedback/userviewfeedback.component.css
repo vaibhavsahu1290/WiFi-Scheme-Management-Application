@@ -1,0 +1,151 @@
+
+  .feedback-wrapper {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f4f6f8;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .feedback-wrapper h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #3884cf;
+  }
+  
+  .feedback-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .feedback-table th,
+  .feedback-table td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: left;
+  }
+  
+  .feedback-table th {
+    background-color: #2f79c4;
+    color: white;
+  }
+  
+  .feedback-table tr:nth-child(even) {
+    background-color: #ecf0f1;
+  }
+  
+  .feedback-table tr:hover {
+    background-color: #dfe6e9;
+  }
+  
+  .no-records {
+    text-align: center;
+    padding: 20px;
+    color: #7f8c8d;
+    font-style: italic;
+  }
+  
+  button {
+    padding: 8px 12px;
+    margin-right: 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    opacity: 0.9;
+  }
+  
+  button:nth-child(1) {
+    background-color: #3498db;
+    color: white;
+  }
+  
+  button:nth-child(2) {
+    background-color: #e74c3c;
+    color: white;
+  }
+  
+  .error-message {
+    color: #e74c3c;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .modal-content h3 {
+    margin-top: 0;
+    color: #2c3e50;
+  }
+  
+  .modal-content p {
+    margin: 10px 0;
+    font-size: 0.95em;
+  }
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #888;
+  }
+  
+  .close:hover {
+    color: #333;
+  }
+  
+  .btn {
+    padding: 8px 12px;
+    margin-right: 10px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    cursor: pointer;
+    border: none;
+    background-color: #c0392b;
+  }
+  
+  .btn-danger {
+    background-color: #e74c3c;
+    color: white;
+  }
+  .btn-secondary {
+    background-color: #bdc3c7;
+    color: #2c3e50;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #95a5a6;
+  }
